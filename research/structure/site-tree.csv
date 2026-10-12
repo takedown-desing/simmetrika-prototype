@@ -1,0 +1,34 @@
+Уровень1;Уровень2;Уровень3;Уровень4;url;page_type;cluster_id;priority
+Главная;;;;/;home;C01;P1
+Каталог;;;;/catalog/;catalog-hub;C00;P1
+Каталог;Прямые диваны;;;/catalog/pryamye-divany/;category;C02;P1
+Каталог;Прямые диваны;Товар;;/catalog/pryamye-divany/{model}/;product;;P1
+Каталог;Прямые диваны;Велюр;;/catalog/pryamye-divany/velyur/;filter;C09;P3
+Каталог;Угловые диваны;;;/catalog/uglovye-divany/;category;C03;P1
+Каталог;Угловые диваны;Товар;;/catalog/uglovye-divany/{model}/;product;;P1
+Каталог;Угловые диваны;Велюр;;/catalog/uglovye-divany/velyur/;filter;C08;P3
+Каталог;Модульные диваны и системы;;;/catalog/modulnye-divany/;category;C04;P1
+Каталог;Модульные диваны и системы;Товар;;/catalog/modulnye-divany/{model}/;product;;P1
+Каталог;Диваны-кровати;;;/catalog/divany-krovati/;collection;C05;P1
+Каталог;Диваны-кровати;Пантограф;;/catalog/divany-krovati/pantograf/;filter;C10;P2
+Каталог;Диваны-кровати;Венеция;;/catalog/divany-krovati/venetsiya/;filter;C11;P2
+Каталог;Диваны-кровати;Выкатные;;/catalog/divany-krovati/vykatnye/;filter;C12;P2
+Каталог;Диваны для гостиной;;;/catalog/divany-dlya-gostinoy/;collection;C18;P2
+Каталог;Большие диваны;;;/catalog/bolshie-divany/;collection;C20;P2
+Каталог;Дизайнерские диваны;;;/catalog/dizaynerskie-divany/;collection;C19;P3
+Каталог;Велюр;;;/catalog/velyur/;filter;C06;P2
+Каталог;Рогожка;;;/catalog/rogozhka/;filter;C07;P2
+Каталог;В наличии;;;/catalog/v-nalichii/;filter;C21;P2
+Каталог;По цвету;{color};;/catalog/cvet/{color}/;filter;C17;P2
+Акции;;;;/sale/;landing;C14;P1
+На заказ;;;;/na-zakaz/;service-landing;C13;P2
+Доставка;;;;/dostavka/;service;C16;P2
+О компании;;;;/o-kompanii/;service;;P2
+Контакты;;;;/kontakty/;contact;C15;P1
+Контакты;Шоурум;;;/kontakty/{showroom}/;local;B01;D
+Новости;;;;/news/;news;;P2
+Новости;Новость;;;/news/{slug}/;news-item;;P2
+Блог;;;;/blog/;blog;C22;D
+Заявка;;;;/zayavka/;utility-noindex;;P1
+Заявка;Спасибо;;;/zayavka/spasibo/;utility-noindex;;P1
+Политика;;;;/privacy/;utility;;P1

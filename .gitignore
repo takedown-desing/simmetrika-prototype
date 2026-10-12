@@ -1,0 +1,3 @@
+.seo-agent.env
+*.bak
+.DS_Store

@@ -1,0 +1,10 @@
+URL: https://simmetrika-mebel.ru/ (mobile)
+  Performance: 71/100
+  Accessibility: 62/100
+  Best Practices: 77/100
+  SEO: 91/100
+  largest-contentful-paint: 2.7 s
+  cumulative-layout-shift: 0.055
+  total-blocking-time: 520 ms
+  speed-index: 7.7 s
+  first-contentful-paint: 2.7 s

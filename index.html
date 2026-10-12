@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Прототип SIMMETRIKA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+/* Layout: single column document, 72ch reading measure, wide tables break out to full width in their own scroll box. */
+:root{
+  --bg:#f6f3ee; --bg-2:#ecE7df; --fg:#1d1b18; --fg-2:#5a564f; --line:#d9d2c6;
+  --accent:#1f5c4a; --accent-2:#c9a86a; --warn:#a4452c; --ok:#2f7a4f; --card:#ffffff;
+  --display:'Unbounded','Arial Black',sans-serif; --body:'Golos Text','Helvetica Neue',Arial,sans-serif; --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17191a;--bg-2:#212426;--fg:#ede8e0;--fg-2:#a7a198;--line:#3a3d40;--accent:#6fc3a3;--accent-2:#d9b978;--warn:#e07a5f;--ok:#7fcf9a;--card:#1f2224;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17191a;--bg-2:#212426;--fg:#ede8e0;--fg-2:#a7a198;--line:#3a3d40;--accent:#6fc3a3;--accent-2:#d9b978;--warn:#e07a5f;--ok:#7fcf9a;--card:#1f2224;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;margin:0;padding-block:0 64px;padding-inline:16px}
+.wrap{max-width:1040px;margin:0 auto}
+header.hero{padding-block:48px 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2);font-weight:600}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.1;margin:8px 0 12px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(20px,3vw,26px);margin:48px 0 12px;text-wrap:balance}
+h3{font-size:17px;font-weight:600;margin:24px 0 8px}
+p{max-width:72ch;margin:0 0 12px}
+.lead{font-size:18px;color:var(--fg-2);max-width:72ch}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:20px;font-size:14px}
+nav.toc a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+nav.toc a:hover,nav.toc a:focus-visible{border-color:var(--accent);outline:none}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0 0}
+.kpi{background:var(--card);border:1px solid var(--line);padding:14px 16px;min-width:0}
+.kpi b{display:block;font-family:var(--display);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--fg-2)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--card);margin:12px 0 0;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:640px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-2);background:var(--bg-2);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+code{font-family:var(--mono);font-size:13px;background:var(--bg-2);padding:1px 5px;border-radius:3px}
+.tree{background:var(--card);border:1px solid var(--line);padding:16px;overflow-x:auto;margin:12px 0 0}
+.tree ul{list-style:none;margin:0;padding-left:0}
+.tree ul ul{padding-left:22px;border-left:1px solid var(--line);margin-left:7px}
+.tree li{padding:4px 0;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;min-width:0}
+.tree li>code{color:var(--accent);background:transparent;padding:0;font-size:14px}
+.tree li>span{color:var(--fg-2);font-size:13px}
+.pill{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;padding:2px 7px;border:1px solid var(--line);border-radius:999px;color:var(--fg-2);white-space:nowrap}
+.pill.p1{color:var(--accent);border-color:var(--accent)}
+.pill.d{color:var(--warn);border-color:var(--warn)}
+.pill.noidx{color:var(--fg-2);border-style:dashed}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:12px}
+.box{background:var(--card);border:1px solid var(--line);padding:16px;min-width:0}
+.box h3{margin-top:0}
+.box ul{margin:0;padding-left:18px}
+.box li{margin:4px 0}
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin-top:12px}
+.flow .step{flex:1 1 220px;background:var(--card);border:1px solid var(--line);padding:14px 16px;min-width:0;border-top:3px solid var(--accent)}
+.flow .step b{display:block;font-family:var(--display);font-size:14px;font-weight:500;margin-bottom:6px}
+.flow .step ul{margin:0;padding-left:16px;font-size:14px}
+ol.q{padding-left:22px;max-width:80ch}
+ol.q li{margin:8px 0}
+ol.q li b{font-weight:600}
+.note{border-left:3px solid var(--accent-2);padding:10px 14px;background:var(--bg-2);max-width:80ch;margin:12px 0}
+.sev{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.sev.p1{background:var(--warn)}.sev.p2{background:var(--accent-2)}.sev.p3{background:var(--fg-2)}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--fg-2)}
+@media (max-width:480px){.tree ul ul{padding-left:12px}}
+@media (prefers-reduced-motion:no-preference){a{transition:border-color .15s}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">simmetrika-mebel.ru · прототип структуры · v1 · 12 октября 2026</div>
+  <h1>Интернет-магазин диванов SIMMETRIKA: карта сайта и модель каталога</h1>
+  <p class="lead">Проектирование нового сайта по ТЗ от 12.10.2026 на базе текущего домена. Витрина-каталог с заявкой без онлайн-оплаты. Структура построена на реальном спросе Яндекса по Москве и области и на выдаче по 10 якорным запросам.</p>
+  <div class="kpis">
+    <div class="kpi"><b>57</b><span>индексируемых URL на старте (+2 noindex)</span></div>
+    <div class="kpi"><b>23</b><span>поисковых кластера, каждый закреплён за одной страницей</span></div>
+    <div class="kpi"><b>1,48 млн</b><span>запросов/мес (Wordstat, Москва и МО) в кластерах</span></div>
+    <div class="kpi"><b>12 / 19</b><span>моделей / карточек товаров на старте</span></div>
+    <div class="kpi"><b>0</b><span>позиций в ТОП-10 у текущего сайта</span></div>
+  </div>
+  <nav class="toc" aria-label="Разделы">
+    <a href="#tree">Карта сайта</a><a href="#pages">Таблица страниц</a><a href="#catalog">Модель каталога</a><a href="#rules">URL, индексация, редиректы</a><a href="#meta">Title / H1 / Schema</a><a href="#current">Текущий сайт</a><a href="#serp">Конкуренты</a><a href="#questions">Вопросы к заказчику</a>
+  </nav>
+</header>
+
+<h2 id="tree">1. Карта сайта</h2>
+<p>Глубина до любого товара — три клика: главная → категория → товар. Категории совпадают с ТЗ; «диваны-кровати», подборки и фильтры — отдельные индексируемые адреса, потому что так устроены все лидеры выдачи. В скобках — спрос кластера, запросов в месяц.</p>
+<div class="tree">
+<ul>
+ <li><code>/</code><span>Главная · «фабрика диванов в Москве» (70 120)</span><span class="pill p1">P1</span></li>
+ <li><code>/catalog/</code><span>Каталог, хаб · «купить диван», «диваны Москва» (642 806)</span><span class="pill p1">P1</span>
+  <ul>
+   <li><code>/catalog/pryamye-divany/</code><span>Прямые диваны (59 876) · 8 товаров</span><span class="pill p1">P1</span>
+    <ul>
+     <li><code>/catalog/pryamye-divany/{model}/</code><span>Товар: edzhio, kembridzh, reymond, teo, kloud, oksford, milano, bombey</span><span class="pill p1">P1</span></li>
+     <li><code>/catalog/pryamye-divany/velyur/</code><span>фильтр ткани (4 551)</span><span class="pill">P3</span></li>
+    </ul></li>
+   <li><code>/catalog/uglovye-divany/</code><span>Угловые диваны (155 690) · 8 товаров</span><span class="pill p1">P1</span>
+    <ul>
+     <li><code>/catalog/uglovye-divany/{model}/</code><span>Товар: edzhio, kembridzh, reymond, milano, floyd, bombey, rolling, teylor</span><span class="pill p1">P1</span></li>
+     <li><code>/catalog/uglovye-divany/velyur/</code><span>фильтр ткани (3 164)</span><span class="pill">P3</span></li>
+    </ul></li>
+   <li><code>/catalog/modulnye-divany/</code><span>Модульные диваны и системы (19 665) · 3 товара</span><span class="pill p1">P1</span>
+    <ul><li><code>/catalog/modulnye-divany/{model}/</code><span>Товар: shanhay, edzhio, bombey</span><span class="pill p1">P1</span></li></ul></li>
+   <li><code>/catalog/divany-krovati/</code><span>Диваны-кровати со спальным местом, сквозная подборка (293 845)</span><span class="pill p1">P1</span>
+    <ul>
+     <li><code>/catalog/divany-krovati/pantograf/</code><span>механизм пантограф (3 711)</span><span class="pill">P2</span></li>
+     <li><code>/catalog/divany-krovati/venetsiya/</code><span>механизм венеция (1 042)</span><span class="pill">P2</span></li>
+     <li><code>/catalog/divany-krovati/vykatnye/</code><span>выкатные (14 585)</span><span class="pill">P2</span></li>
+    </ul></li>
+   <li><code>/catalog/divany-dlya-gostinoy/</code><span>подборка (19 572)</span><span class="pill">P2</span></li>
+   <li><code>/catalog/bolshie-divany/</code><span>большие диваны от 250 см (27 041)</span><span class="pill">P2</span></li>
+   <li><code>/catalog/dizaynerskie-divany/</code><span>дизайнерские / лофт (11 837)</span><span class="pill">P3</span></li>
+   <li><code>/catalog/velyur/</code><span>фильтр ткани (13 534)</span><span class="pill">P2</span></li>
+   <li><code>/catalog/rogozhka/</code><span>фильтр ткани (3 081)</span><span class="pill">P2</span></li>
+   <li><code>/catalog/v-nalichii/</code><span>в наличии (1 261)</span><span class="pill">P2</span></li>
+   <li><code>/catalog/cvet/{color}/</code><span>10 цветов: серый, бежевый, зелёный, синий, белый, коричневый, жёлтый, терракот, бордовый, розовый (54 143)</span><span class="pill">P2</span></li>
+  </ul></li>
+ <li><code>/sale/</code><span>Акции и распродажа выставочных образцов, скидки до 30% (45 922)</span><span class="pill p1">P1</span></li>
+ <li><code>/na-zakaz/</code><span>Диваны на заказ по размерам (4 192)</span><span class="pill">P2</span></li>
+ <li><code>/dostavka/</code><span>Доставка, сборка, сроки, оплата (12 655)</span><span class="pill">P2</span></li>
+ <li><code>/o-kompanii/</code><span>О фабрике</span><span class="pill">P2</span></li>
+ <li><code>/kontakty/</code><span>Шоурумы и контакты, 5 точек, карта (2 156)</span><span class="pill p1">P1</span>
+  <ul><li><code>/kontakty/{showroom}/</code><span>страницы точек: himki-grand, tvoy-dom, imperiya, tri-kita, roomer</span><span class="pill d">отложено</span></li></ul></li>
+ <li><code>/news/</code><span>Новости и акции (по ТЗ)</span><span class="pill">P2</span>
+  <ul><li><code>/news/{slug}/</code><span>новость</span></li></ul></li>
+ <li><code>/blog/</code><span>как выбрать диван для сна, механизмы, велюр или рогожка (12 219)</span><span class="pill d">отложено</span></li>
+ <li><code>/zayavka/</code><span>Заявка (корзина без оплаты) и <code>/zayavka/spasibo/</code></span><span class="pill noidx">noindex</span></li>
+ <li><code>/privacy/</code><span>Политика конфиденциальности</span><span class="pill p1">P1</span></li>
+</ul>
+</div>
+<p class="note">Пять решений, которые нужно подтвердить: (1) одна модель в двух категориях — это два товара с перекрёстной ссылкой; (2) «Модульные системы» переименовать в «Модульные диваны и системы»; (3) «Диваны-кровати» — подборка по признаку «есть спальное место», а не четвёртая категория в админке; (4) распродажа образцов живёт отдельно от ленты новостей; (5) фильтры индексируются только при трёх и более товарах в выборке.</p>
+
+<h2 id="pages">2. Таблица страниц</h2>
+<p>Одна строка — один шаблон страницы. Приоритет: P1 обязательны к запуску, P2 — в первый месяц после, P3 и «отложено» — по мере появления контента.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>URL</th><th>Тип</th><th>Кластер</th><th>H1 (черновик)</th><th class="num">Спрос</th><th>Приоритет</th></tr></thead>
+<tbody>
+<tr><td><code>/</code></td><td>главная</td><td>C01</td><td>Диваны от производителя — фабрика SIMMETRIKA, Москва</td><td class="num">70 120</td><td><span class="sev p1"></span>P1</td></tr>
+<tr><td><code>/catalog/</code></td><td>хаб каталога</td><td>C00</td><td>Каталог диванов</td><td class="num">642 806</td><td><span class="sev p1"></span>P1</td></tr>
+<tr><td><code>/catalog/pryamye-divany/</code></td><td>категория</td><td>C02</td><td>Прямые диваны</td><td class="num">59 876</td><td><span class="sev p1"></span>P1</td></tr>
+<tr><td><code>/catalog/uglovye-divany/</code></td><td>категория</td><td>C03</td><td>Угловые диваны</td><td class="num">155 690</td><td><span class="sev p1"></span>P1</td></tr>
+<tr><td><code>/catalog/modulnye-divany/</code></td><td>категория</td><td>C04</td><td>Модульные диваны и системы</td><td class="num">19 665</td><td><span class="sev p1"></span>P1</td></tr>
+<tr><td><code>/catalog/divany-krovati/</code></td><td>подборка</td><td>C05</td><td>Диваны-кровати со спальным местом</td><td class="num">293 845</td><td><span class="sev p1"></span>P1</td></tr>
+<tr><td><code>/catalog/divany-krovati/pantograf/</code></td><td>фильтр</td><td>C10</td><td>Диваны с механизмом пантограф</td><td class="num">3 711</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/catalog/divany-krovati/venetsiya/</code></td><td>фильтр</td><td>C11</td><td>Диваны с механизмом венеция</td><td class="num">1 042</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/catalog/divany-krovati/vykatnye/</code></td><td>фильтр</td><td>C12</td><td>Выкатные диваны</td><td class="num">14 585</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/catalog/divany-dlya-gostinoy/</code></td><td>подборка</td><td>C18</td><td>Диваны для гостиной</td><td class="num">19 572</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/catalog/bolshie-divany/</code></td><td>подборка</td><td>C20</td><td>Большие диваны от 250 см</td><td class="num">27 041</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/catalog/dizaynerskie-divany/</code></td><td>подборка</td><td>C19</td><td>Дизайнерские диваны в современном стиле</td><td class="num">11 837</td><td><span class="sev p3"></span>P3</td></tr>
+<tr><td><code>/catalog/velyur/</code></td><td>фильтр</td><td>C06</td><td>Диваны в велюре</td><td class="num">13 534</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/catalog/rogozhka/</code></td><td>фильтр</td><td>C07</td><td>Диваны в рогожке</td><td class="num">3 081</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/catalog/v-nalichii/</code></td><td>фильтр</td><td>C21</td><td>Диваны в наличии</td><td class="num">1 261</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/catalog/cvet/{color}/</code> ×10</td><td>фильтр</td><td>C17</td><td>{Цвет} диваны</td><td class="num">54 143</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/catalog/pryamye-divany/velyur/</code></td><td>фильтр</td><td>C09</td><td>Прямые диваны в велюре</td><td class="num">4 551</td><td><span class="sev p3"></span>P3</td></tr>
+<tr><td><code>/catalog/uglovye-divany/velyur/</code></td><td>фильтр</td><td>C08</td><td>Угловые диваны в велюре</td><td class="num">3 164</td><td><span class="sev p3"></span>P3</td></tr>
+<tr><td><code>/catalog/{category}/{model}/</code> ×19</td><td>товар</td><td>long-tail «диван {модель}»</td><td>{Прямой / Угловой / Модульный} диван {Модель}</td><td class="num">—</td><td><span class="sev p1"></span>P1</td></tr>
+<tr><td><code>/sale/</code></td><td>посадочная</td><td>C14</td><td>Распродажа выставочных образцов — скидки до 30%</td><td class="num">45 922</td><td><span class="sev p1"></span>P1</td></tr>
+<tr><td><code>/na-zakaz/</code></td><td>услуга</td><td>C13</td><td>Диваны на заказ по вашим размерам</td><td class="num">4 192</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/dostavka/</code></td><td>сервис</td><td>C16</td><td>Доставка, сборка и сроки изготовления</td><td class="num">12 655</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/o-kompanii/</code></td><td>сервис</td><td>—</td><td>О фабрике SIMMETRIKA</td><td class="num">—</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/kontakty/</code></td><td>контакты</td><td>C15</td><td>Шоурумы и контакты</td><td class="num">2 156</td><td><span class="sev p1"></span>P1</td></tr>
+<tr><td><code>/kontakty/{showroom}/</code> ×5</td><td>точка продаж</td><td>B01</td><td>Диваны SIMMETRIKA в {ТЦ}</td><td class="num">≈ 950</td><td>отложено</td></tr>
+<tr><td><code>/news/</code>, <code>/news/{slug}/</code></td><td>новости</td><td>—</td><td>Новости и акции</td><td class="num">—</td><td><span class="sev p2"></span>P2</td></tr>
+<tr><td><code>/blog/</code>, <code>/blog/{slug}/</code></td><td>блог</td><td>C22</td><td>—</td><td class="num">12 219</td><td>отложено</td></tr>
+<tr><td><code>/zayavka/</code>, <code>/zayavka/spasibo/</code></td><td>служебная, noindex</td><td>—</td><td>Ваша заявка</td><td class="num">—</td><td><span class="sev p1"></span>P1</td></tr>
+<tr><td><code>/privacy/</code></td><td>служебная</td><td>—</td><td>Политика конфиденциальности</td><td class="num">—</td><td><span class="sev p1"></span>P1</td></tr>
+</tbody></table></div>
+
+<h2 id="catalog">3. Модель каталога: категория → товар → вариант</h2>
+<p>Трёхуровневая структура из ТЗ, дополненная полями, без которых не собираются подборки, фильтры и микроразметка. Всё редактируется из админки.</p>
+<div class="flow">
+ <div class="step"><b>Категория</b><ul><li>name, slug (латиница, фиксируется при создании)</li><li>h1, title, description, вводный и SEO-текст</li><li>порядок, активность</li><li>На старт: прямые, угловые, модульные; новые — из админки</li></ul></div>
+ <div class="step"><b>Товар = модель в категории</b><ul><li>name, slug, одна категория; <code>model_family</code> связывает «Эджио прямой» и «Эджио угловой»</li><li>габариты Д×Г×В, высота посадки, спальное место</li><li>механизм: нет / пантограф / венеция / выкатной</li><li>наполнитель, каркас, опоры, описание</li><li>цена «от» = минимум по вариантам</li><li>флаги: хит, выставочный образец (+ старая цена), теги подборок</li><li>свои h1 / title / description</li></ul></div>
+ <div class="step"><b>Вариант</b><ul><li>ткань из справочника (материал, коллекция, цветовая группа, сватч)</li><li>сторона угловой секции: левая / правая</li><li>размерное исполнение (если есть)</li><li>цена, наличие: в наличии / под заказ N дней</li><li>фотогалерея варианта, артикул</li></ul></div>
+ <div class="step"><b>Заявка</b><ul><li>тип: корзина / в один клик / вопрос / обратный звонок</li><li>имя, телефон, email, комментарий, согласие 152-ФЗ</li><li>состав: вариант, количество, цена на момент заявки</li><li>страница-источник, UTM, статус (новая / в работе / закрыта)</li><li>email менеджерам + выгрузка CSV</li></ul></div>
+</div>
+<div class="grid2">
+ <div class="box"><h3>Фильтры категории (ТЗ §5)</h3><ul><li>Цена (диапазон) — только если цены публикуются</li><li>Длина, см</li><li>Материал обивки: велюр, рогожка, жаккард</li><li>Цвет: 10 групп</li><li>Наличие</li><li>Сортировка: популярность (по умолчанию), цена по возрастанию и убыванию</li></ul></div>
+ <div class="box"><h3>Подборки формируются автоматически</h3><ul><li>Диваны-кровати: механизм ≠ «нет»</li><li>Большие диваны: длина ≥ 250 см</li><li>Пантограф / венеция / выкатные: по полю «механизм»</li><li>Велюр, рогожка, цвета: по справочнику тканей вариантов</li><li>В наличии: хотя бы один вариант in_stock</li><li>Распродажа: флаг «выставочный образец»</li></ul></div>
+</div>
+
+<h2 id="rules">4. URL, индексация, редиректы</h2>
+<div class="grid2">
+ <div class="box"><h3>Правила адресов</h3><ul><li>Строчные буквы, латиница, дефисы, слэш на конце, без <code>.html</code></li><li>Товар: <code>/catalog/{category}/{product}/</code>; вариант своего адреса не имеет, выбирается на странице (ссылка с <code>?variant=</code> допустима, canonical на товар)</li><li>Транслит моделей: Эджио → edzhio, Кембридж → kembridzh, Реймонд → reymond, ТЭО → teo, Клоуд → kloud, Оксфорд → oksford, Милано → milano, Бомбей → bombey, Флоид → floyd, Роллинг → rolling, Тейлор → teylor, Шанхай → shanhay</li><li>Адрес фиксируется при первой публикации; любая смена — только 301</li></ul></div>
+ <div class="box"><h3>Что индексируется</h3><ul><li>Статические подборки и фильтры из карты: свой H1, текст, self-canonical, в sitemap</li><li>Автоправило: в выборке меньше трёх товаров → <code>noindex,follow</code></li><li>Любые другие комбинации фильтров и сортировка — GET-параметры с <code>noindex,follow</code> и canonical на чистый адрес</li><li>Пагинация <code>?page=N</code> индексируется, self-canonical; «показать ещё» с запасной ссылкой</li><li><code>/zayavka/</code> и «спасибо» — noindex; пустая категория отдаёт 200 с подсказкой, но noindex</li></ul></div>
+</div>
+<h3>Редиректы со старого сайта (все в один переход)</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Старый адрес</th><th>Новый адрес</th></tr></thead>
+<tbody>
+<tr><td><code>/index.html</code></td><td><code>/</code></td></tr>
+<tr><td><code>/straight.html</code></td><td><code>/catalog/pryamye-divany/</code></td></tr>
+<tr><td><code>/angular.html</code></td><td><code>/catalog/uglovye-divany/</code></td></tr>
+<tr><td><code>/modular.html</code></td><td><code>/catalog/modulnye-divany/</code></td></tr>
+<tr><td><code>http://…</code>, <code>https://www.…</code></td><td><code>https://simmetrika-mebel.ru/…</code> (сейчас www отдаёт 200, это дубль)</td></tr>
+<tr><td><code>/images/*.jpg</code> (рендеры 2019)</td><td>410 или 301 на товар, после запуска</td></tr>
+</tbody></table></div>
+
+<h2 id="meta">5. Шаблоны title / H1 и микроразметка</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Тип страницы</th><th>Title (≤ 65 символов)</th><th>H1</th><th>Schema.org</th></tr></thead>
+<tbody>
+<tr><td>Главная</td><td>Диваны от производителя в Москве — фабрика SIMMETRIKA</td><td>Диваны от производителя — фабрика SIMMETRIKA</td><td>Organization + FurnitureStore, sameAs VK</td></tr>
+<tr><td>Категория</td><td>{Категория} от производителя — купить в Москве | SIMMETRIKA</td><td>{Категория}</td><td>CollectionPage + ItemList, BreadcrumbList</td></tr>
+<tr><td>Подборка / фильтр</td><td>{Название} — купить от производителя в Москве | SIMMETRIKA</td><td>{Название}</td><td>CollectionPage + ItemList, BreadcrumbList</td></tr>
+<tr><td>Товар</td><td>{Тип} диван {Модель} — купить от производителя, цена | SIMMETRIKA</td><td>{Тип} диван {Модель}</td><td>Product (+ AggregateOffer, если есть цены), BreadcrumbList</td></tr>
+<tr><td>Контакты</td><td>Шоурумы диванов SIMMETRIKA в Москве и Химках — адреса, часы</td><td>Шоурумы и контакты</td><td>LocalBusiness на каждую точку: адрес, координаты, часы</td></tr>
+<tr><td>Распродажа</td><td>Распродажа выставочных образцов диванов — скидки до 30% | SIMMETRIKA</td><td>Распродажа выставочных образцов</td><td>CollectionPage + ItemList</td></tr>
+<tr><td>Доставка</td><td>Доставка, сборка и сроки изготовления диванов | SIMMETRIKA</td><td>Доставка, сборка и сроки изготовления</td><td>FAQPage (синхронно с видимым FAQ)</td></tr>
+</tbody></table></div>
+<p style="margin-top:12px">Description собирается из полей товара: габариты, спальное место, механизм, число вариантов ткани, наличие. Alt картинок: «{Тип} диван {Модель}, {ткань} {цвет}». Имена файлов латиницей, WebP с запасным JPEG, lazy-load ниже первого экрана.</p>
+
+<h2 id="current">6. Текущий сайт: что фиксируем до переезда</h2>
+<p>Статический экспорт Tilda 2019 года на хостинге reg.ru: четыре HTML-страницы, товары открываются в попапах. Органической видимости нет, поэтому риск потери позиций при переезде отсутствует; переносим только три адреса категорий и возраст домена.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Проблема</th><th>Факт</th><th>Как закрывает новый сайт</th></tr></thead>
+<tbody>
+<tr><td>Нет страниц товаров</td><td>19 попапов на 3 страницах, без цен, фото и тканей</td><td>Отдельный адрес на каждый товар</td></tr>
+<tr><td>Нет robots.txt и sitemap.xml</td><td>оба отвечают 404</td><td>Автогенерация движком</td></tr>
+<tr><td>Нет H1 и осмысленного title</td><td>title главной = имя домена, заголовки в div</td><td>Шаблоны из раздела 5, редактируемые поля</td></tr>
+<tr><td>Дубль хоста</td><td>www-версия отвечает 200 без редиректа</td><td>301 на версию без www</td></tr>
+<tr><td>Пустой canonical, нет микроразметки</td><td><code>href=""</code>, JSON-LD отсутствует</td><td>Self-canonical и @graph на каждой странице</td></tr>
+<tr><td>Нет аналитики</td><td>счётчиков Метрики и GA в коде нет</td><td>Новые счётчики, 4 цели по типам заявок, ecommerce</td></tr>
+<tr><td>Битая ссылка Instagram</td><td>ведёт на google.com</td><td>Убрать</td></tr>
+<tr><td>Мобильная скорость</td><td>PageSpeed 71, Speed Index 7,7 с, блокировка 520 мс</td><td>WebP, lazy-load, цель LCP ≤ 2,5 с</td></tr>
+<tr><td>Расхождения в данных</td><td>на сайте 5 точек продаж и 4 телефона, в ТЗ «2 шоурума, 2 телефона»</td><td>Подтвердить список (вопросы 3–4)</td></tr>
+</tbody></table></div>
+
+<h2 id="serp">7. Кто в выдаче Яндекса по Москве</h2>
+<p>ТОП-10 по 10 якорным запросам снят 12.10.2026. Эталон для структуры и карточки товара — pushe.ru: та же модель бизнеса (фабрика с шоурумами), 9 вхождений из 10. По запросу «мебельная фабрика диваны Москва» ранжируются главные страницы фабрик, поэтому этот кластер закрывает главная, а не отдельная страница.</p>
+<div class="grid2">
+ <div class="box"><h3>Прямые аналоги (фабрики)</h3><ul><li>pushe.ru — 9 из 10 запросов</li><li>russdivan.ru — первый по «купить диван от производителя»</li><li>fabrika-stil.ru, ligadivanov.ru, zamm.ru, fabrika4m.ru, divangroup.ru, ahdivan.ru, dee-one.ru</li><li>moon.ru — фабрика-бренд</li></ul></div>
+ <div class="box"><h3>Ритейл и маркетплейсы (бенчмарк UX)</h3><ul><li>divan.ru — 8 из 10, divano.ru и divanchik.ru — по 7</li><li>hoff.ru, mnogomeb.ru, bestmebelshop.ru, mebelvia.ru, lemanapro.ru</li><li>ozon.ru, market.yandex.ru — по «пантограф» и «угловой»</li><li>Премиум-сегмент (кластер «дизайнерские»): imodern.ru, oprime.ru, cosmorelax.ru — другой пул сайтов, P3</li></ul></div>
+</div>
+
+<h2 id="questions">8. Вопросы к заказчику, без которых не начать наполнение</h2>
+<ol class="q">
+ <li><b>Цены.</b> Публикуем ли цены «от …» по вариантам? Без них не работают фильтр и сортировка по цене, Offer в микроразметке и спрос «недорого / цена».</li>
+ <li><b>Фото.</b> Таблица соответствия для 75 кадров: файл → модель → категория → ткань → цвет → сторона. Сейчас подписан только один кадр («диван Bombay»).</li>
+ <li><b>Точки продаж.</b> На сайте 5 адресов (Химки ТЦ Гранд, Твой Дом 24 км МКАД, Империя на Дмитровском, Три Кита на Луговой, Roomer на Ленинской Слободе), в ТЗ — два шоурума. Актуальный список, часы, телефон и координаты каждой точки.</li>
+ <li><b>Телефоны.</b> Четыре номера на сайте: какой основной, какой для обратного звонка, есть ли WhatsApp или Telegram.</li>
+ <li><b>Ткани.</b> Справочник: названия коллекций, материал, цвета, сватчи, свойства (антикоготь, износостойкость).</li>
+ <li><b>Характеристики моделей.</b> Подтвердить таблицу «модель → габариты → механизм» (на старом сайте привязка нестрогая), наполнитель, каркас, опоры, гарантию.</li>
+ <li><b>Наличие и сроки.</b> Что реально в наличии; срок изготовления под заказ после «сокращения сроков».</li>
+ <li><b>Эджио и Egeo.</b> В материалах есть каталог итальянской CTS Salotti (модель Egeo). Какая связь и можно ли упоминать итальянский дизайн.</li>
+ <li><b>Доступы.</b> Яндекс.Вебмастер и Google Search Console домена, аккаунт reg.ru, владелец домена. Счётчики создаём новые.</li>
+ <li><b>Юрлицо.</b> Название, ИНН/ОГРН, адрес производства — для политики, футера и Organization.</li>
+ <li><b>Ассортимент.</b> На фото есть кресла и пуфы — добавляем категории? Нужна ли страница для дилеров и оптовиков?</li>
+ <li><b>Соцсети.</b> Instagram убираем. Актуальны ли VK, Telegram, Дзен?</li>
+</ol>
+
+<footer>Данные: Wordstat API (регион Москва и область), Arsenkin check-top (Яндекс, Москва, десктоп), Keys.so, PageSpeed Insights, снимок сайта от 12.10.2026. Рабочие файлы проекта: research/structure/SITE-TREE.md и CATALOG-MODEL.md.</footer>
+</div>
+
+</body>
+</html>
