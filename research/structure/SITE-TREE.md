@@ -50,7 +50,7 @@
 
 | # | url | page_type | cluster_id | H1 (черновик) | priority | статус |
 |---|---|---|---|---|---|---|
-| 1 | `/` | home | C01 | Диваны от производителя — фабрика SIMMETRIKA, Москва | P1 | queries |
+| 1 | `/` | home | C01 | Диваны от производителя: фабрика SIMMETRIKA в Москве | P1 | queries |
 | 2 | `/catalog/` | catalog-hub | C00 | Каталог диванов | P1 | queries |
 | 3 | `/catalog/pryamye-divany/` | category | C02 | Прямые диваны | P1 | queries |
 | 4 | `/catalog/uglovye-divany/` | category | C03 | Угловые диваны | P1 | queries |
@@ -69,7 +69,7 @@
 | 17 | `/catalog/pryamye-divany/velyur/` | filter | C09 | Прямые диваны в велюре | P3 | queries |
 | 18 | `/catalog/uglovye-divany/velyur/` | filter | C08 | Угловые диваны в велюре | P3 | queries |
 | 19 | `/catalog/{category}/{model}/` ×19 | product | — (long-tail «диван {модель}») | {Тип} диван {Модель} | P1 | queries |
-| 20 | `/sale/` | landing | C14 | Распродажа выставочных образцов — скидки до 30% | P1 | queries |
+| 20 | `/sale/` | landing | C14 | Распродажа выставочных образцов со скидкой до 30% | P1 | queries |
 | 21 | `/na-zakaz/` | service-landing | C13 | Диваны на заказ по вашим размерам | P2 | queries |
 | 22 | `/dostavka/` | service | C16 | Доставка, сборка и сроки изготовления | P2 | queries |
 | 23 | `/o-kompanii/` | service | — (поддержка C01) | О фабрике SIMMETRIKA | P2 | queries · service-page |
