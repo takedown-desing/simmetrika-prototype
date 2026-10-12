@@ -53,6 +53,21 @@
 ### Заявка (`lead`)
 type (`cart` / `one_click` / `question` / `callback`), name, phone, email, comment, items[{variant_id, qty, price_snapshot}], source_url, utm_*, status (new / in_progress / closed), created_at. Выгрузка CSV. Email-уведомление на список адресов из настроек.
 
+### Дополнения модели по итогам структур страниц (2026-10-13, решение D-03 в QUESTIONS.md)
+
+| Сущность / поле | Назначение | Используется |
+|---|---|---|
+| `showroom` (name, slug, mall, address, floor_note, hours, phone, geo_lat/lng, how_to_get, parking, photos[], is_main, is_active) | Единый источник NAP для контактов, футера, главной, карточек («где посмотреть»), JSON-LD `FurnitureStore` ×5 и отложенных страниц `/kontakty/{slug}/` | kontakty, home, product, footer |
+| `promo` (title, text, image, link, date_from, date_to, is_active, sort) | Баннеры акций на главной и `/sale/` (ТЗ §9 «баннеры») | home, sale |
+| `seo_landing` (slug, parent_url, h1, title, description, intro, seo_text, filter_rule JSON, faq[], cover, is_active) | SEO-подборки и фильтр-посадочные из SITE-TREE без участия программиста | filter-landing ×12, механизмы ×3 |
+| `product.has_storage` (bool) | Ящик для белья: фильтр и FAQ (спрос ≈ 10 тыс.) `[Q-17]` | category, product |
+| `product.is_hit`, `product.sort` | Витрина «Хиты» и сортировка «популярность» `[Q-27]` | home, catalog |
+| `variant.sample_*` (sample_price, old_price, discount_pct, sample_showroom_id, sample_status: available/reserved/sold, sample_reserved_until, sample_condition, sample_photos[]) | Выставочные образцы живут на варианте, а не на товаре: образец — конкретная ткань в конкретном шоуруме `[Q-26]` | sale, product |
+| `lead.sizes` (length_cm, depth_cm, side, notes) или структурированный `comment`; `lead.subtype` (sample_reserve, dealer, custom_size) | Заявки со страниц `/na-zakaz/`, `/sale/`, `/o-kompanii/` | zayavka, na-zakaz, sale |
+| `site_settings.legal` (legal_name, inn, ogrn, address, email_pd, policy_date) | Один источник для `/privacy/`, футера и `Organization` `[Q-11]` | privacy, footer, o-kompanii |
+| `site_settings.delivery` (тарифы, сроки, `delivery_prices_public` bool, lead_time_days) | Тексты доставки во всех блоках из одного места `[Q-02, Q-24]` | dostavka, product, category |
+| `news` (title, slug, type: news/promo, date, date_end, cover, announce, body, product_ids[], is_active, seo) | Раздел «Новости и акции» | news |
+
 ## 2. URL-правила (RULE-URL-STRUCTURE)
 - Trailing slash: **да**. Lowercase, kebab-case, латиница (транслит по ГОСТ-подобной схеме: Эджио → `edzhio`, Кембридж → `kembridzh`, Реймонд → `reymond`, ТЭО → `teo`, Клоуд → `kloud`, Оксфорд → `oksford`, Милано → `milano`, Бомбей → `bombey`, Флоид → `floyd`, Роллинг → `rolling`, Тейлор → `teylor`, Шанхай → `shanhay`).
 - Товар: `/catalog/{category}/{product}/`. Вариант **не** имеет своего URL: выбор варианта меняет состояние через `?variant={sku}` (canonical → товар без параметра) или через JS-state. Для шаринга менеджером ссылка с `?variant=` допустима.
