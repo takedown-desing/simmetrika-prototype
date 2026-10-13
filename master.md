@@ -86,6 +86,7 @@
 | /catalog/pryamye-divany/ | C02 | category | P1 | built | pryamye-divany.md |
 | /catalog/uglovye-divany/ | C03 | category | P1 | built | uglovye-divany.md |
 | /catalog/modulnye-divany/ | C04 | category | P1 | built | modulnye-divany.md |
+| /catalog/kresla/ + 2 товара | — | category | P3 | built | drafts/content/kresla.md (Q-08) |
 | /catalog/divany-krovati/ | C05 | collection | P1 | built | divany-krovati.md |
 | /catalog/divany-krovati/pantograf/ | C10 | filter | P2 | built | divany-krovati.md §13 |
 | /catalog/divany-krovati/venetsiya/ | C11 | filter | P2 | built | divany-krovati.md §13 |

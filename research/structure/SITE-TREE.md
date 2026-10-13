@@ -55,6 +55,7 @@
 | 3 | `/catalog/pryamye-divany/` | category | C02 | Прямые диваны | P1 | queries |
 | 4 | `/catalog/uglovye-divany/` | category | C03 | Угловые диваны | P1 | queries |
 | 5 | `/catalog/modulnye-divany/` | category | C04 | Модульные диваны и системы | P1 | queries |
+| 5a | `/catalog/kresla/` (+2 товара) | category | — (Q-08) | Кресла и пуфы | P3 | built · добавлено 2026-10-13 по решению пользователя |
 | 6 | `/catalog/divany-krovati/` | collection | C05 | Диваны-кровати со спальным местом | P1 | queries |
 | 7 | `/catalog/divany-krovati/pantograf/` | filter | C10 | Диваны с механизмом пантограф | P2 | queries |
 | 8 | `/catalog/divany-krovati/venetsiya/` | filter | C11 | Диваны с механизмом венеция | P2 | queries |
