@@ -75,40 +75,40 @@
 
 ## Pages pipeline
 
-Статусы `structure` выставлены 2026-10-13: этапы research и brief пропущены по решению пользователя (клиент не отвечает), структуры построены на допущениях `drafts/_CONTEXT.md` + `QUESTIONS.md`. Перед `/page-content` брифы заменяются ответами клиента. Файл структуры: `drafts/structure/{slug}.md` (колонка «структура»).
+Статусы `content` выставлены 2026-10-13 (тексты в `drafts/content/`, формат `drafts/_CONTENT-FORMAT.md`). Статусы `structure` выставлены 2026-10-13: этапы research и brief пропущены по решению пользователя (клиент не отвечает), структуры построены на допущениях `drafts/_CONTEXT.md` + `QUESTIONS.md`. Перед `/page-content` брифы заменяются ответами клиента. Файл структуры: `drafts/structure/{slug}.md` (колонка «структура»).
 
 | slug | cluster_id | page_type | priority | status | структура |
 |---|---|---|---|---|---|
 
-| / | C01 | home | P1 | structure | home.md |
-| /catalog/ | C00 | catalog-hub | P1 | structure | catalog.md |
-| /catalog/pryamye-divany/ | C02 | category | P1 | structure | pryamye-divany.md |
-| /catalog/uglovye-divany/ | C03 | category | P1 | structure | uglovye-divany.md |
-| /catalog/modulnye-divany/ | C04 | category | P1 | structure | modulnye-divany.md |
-| /catalog/divany-krovati/ | C05 | collection | P1 | structure | divany-krovati.md |
-| /catalog/divany-krovati/pantograf/ | C10 | filter | P2 | structure | divany-krovati.md §13 |
-| /catalog/divany-krovati/venetsiya/ | C11 | filter | P2 | structure | divany-krovati.md §13 |
-| /catalog/divany-krovati/vykatnye/ | C12 | filter | P2 | structure | divany-krovati.md §13 (noindex при 1 товаре, D-02) |
-| /catalog/divany-dlya-gostinoy/ | C18 | collection | P2 | structure | filter-landing.md |
-| /catalog/bolshie-divany/ | C20 | collection | P2 | structure | filter-landing.md |
-| /catalog/dizaynerskie-divany/ | C19 | collection | P3 | structure | filter-landing.md |
-| /catalog/velyur/ | C06 | filter | P2 | structure | filter-landing.md |
-| /catalog/rogozhka/ | C07 | filter | P2 | structure | filter-landing.md |
-| /catalog/v-nalichii/ | C21 | filter | P2 | structure | filter-landing.md |
-| /catalog/cvet/{color}/ ×10 | C17 | filter | P2 | structure | filter-landing.md |
-| /catalog/pryamye-divany/velyur/ | C09 | filter | P3 | structure | filter-landing.md |
-| /catalog/uglovye-divany/velyur/ | C08 | filter | P3 | structure | filter-landing.md |
-| /catalog/{category}/{model}/ ×19 | — | product | P1 | structure | product.md |
-| /sale/ | C14 | landing | P1 | structure | sale.md |
-| /na-zakaz/ | C13 | service-landing | P2 | structure | na-zakaz.md |
-| /dostavka/ | C16 | service | P2 | structure | dostavka.md |
-| /o-kompanii/ | — | service-page | P2 | structure | o-kompanii.md |
-| /kontakty/ | C15 | contact | P1 | structure | kontakty.md |
+| / | C01 | home | P1 | content | home.md |
+| /catalog/ | C00 | catalog-hub | P1 | content | catalog.md |
+| /catalog/pryamye-divany/ | C02 | category | P1 | content | pryamye-divany.md |
+| /catalog/uglovye-divany/ | C03 | category | P1 | content | uglovye-divany.md |
+| /catalog/modulnye-divany/ | C04 | category | P1 | content | modulnye-divany.md |
+| /catalog/divany-krovati/ | C05 | collection | P1 | content | divany-krovati.md |
+| /catalog/divany-krovati/pantograf/ | C10 | filter | P2 | content | divany-krovati.md §13 |
+| /catalog/divany-krovati/venetsiya/ | C11 | filter | P2 | content | divany-krovati.md §13 |
+| /catalog/divany-krovati/vykatnye/ | C12 | filter | P2 | content | divany-krovati.md §13 (noindex при 1 товаре, D-02) |
+| /catalog/divany-dlya-gostinoy/ | C18 | collection | P2 | content | filter-landing.md |
+| /catalog/bolshie-divany/ | C20 | collection | P2 | content | filter-landing.md |
+| /catalog/dizaynerskie-divany/ | C19 | collection | P3 | content | filter-landing.md |
+| /catalog/velyur/ | C06 | filter | P2 | content | filter-landing.md |
+| /catalog/rogozhka/ | C07 | filter | P2 | content | filter-landing.md |
+| /catalog/v-nalichii/ | C21 | filter | P2 | content | filter-landing.md |
+| /catalog/cvet/{color}/ ×10 | C17 | filter | P2 | content | filter-landing.md |
+| /catalog/pryamye-divany/velyur/ | C09 | filter | P3 | content | filter-landing.md |
+| /catalog/uglovye-divany/velyur/ | C08 | filter | P3 | content | filter-landing.md |
+| /catalog/{category}/{model}/ ×19 | — | product | P1 | content | product.md |
+| /sale/ | C14 | landing | P1 | content | sale.md |
+| /na-zakaz/ | C13 | service-landing | P2 | content | na-zakaz.md |
+| /dostavka/ | C16 | service | P2 | content | dostavka.md |
+| /o-kompanii/ | — | service-page | P2 | content | o-kompanii.md |
+| /kontakty/ | C15 | contact | P1 | content | kontakty.md |
 | /kontakty/{showroom}/ ×5 | B01 | local | D | отложено | kontakty.md §13 (шаблон) |
-| /news/, /news/{slug}/ | — | service-page | P2 | structure | news.md |
+| /news/, /news/{slug}/ | — | service-page | P2 | content | news.md |
 | /blog/ | C22 | blog | D | отложено | — |
-| /zayavka/, /zayavka/spasibo/ | — | service-page (noindex) | P1 | structure | zayavka.md |
-| /privacy/ | — | service-page | P1 | structure | privacy-404.md |
+| /zayavka/, /zayavka/spasibo/ | — | service-page (noindex) | P1 | content | zayavka.md |
+| /privacy/ | — | service-page | P1 | content | privacy-404.md |
 
 Жизненный цикл: `queries → researched → brief → structure → content → built → live`.
 
@@ -125,7 +125,9 @@
 - [x] INTERLINKING.md (силосы, per-page план, анкоры) — 2026-10-13
 - [x] Структуры 15 шаблонов страниц в `drafts/structure/` по допущениям — 2026-10-13 (research/brief пропущены по решению пользователя)
 - [x] QUESTIONS.md — реестр 32 вопросов и 8 внутренних решений, пополняется
-- [ ] Ответы клиента на QUESTIONS.md → замена допущений в структурах
+- [x] Тексты 66 страниц в `drafts/content/` (42 тыс. слов, 451 FAQ) + тексты интерфейса `_ui.md` + данные каталога `drafts/data/catalog.json` — 2026-10-13; проверка `python3 scripts/check-content.py`
+- [ ] Ответы клиента на QUESTIONS.md → замена допущений в данных, структурах и текстах (по полю `assumptions`)
+- [ ] `/design-site`: направление дизайна → DESIGN.md + tokens → вёрстка шаблонов из `drafts/content/` и `catalog.json`
 - [ ] Утверждение дерева и структур пользователем
 - [ ] Доступы: GSC, Вебмастер, reg.ru, Метрика
 - [ ] `/page-research` → `/page-brief` → `/page-structure` → `/page-content`

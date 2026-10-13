@@ -43,7 +43,7 @@ for f, h, body, errs in pages:
     t, d = str(h.get("title", "")), str(h.get("description", ""))
     titles[t] += 1
     typ = h.get("type", "")
-    if typ not in ("cart", "error", "legal") and not str(pid).startswith("ui"):
+    if typ not in ("cart", "error", "legal", "ui") and not str(pid).startswith("_ui") and "{" not in str(pid):
         if not (40 <= len(t) <= 60): e.append(f"title {len(t)}")
         if not (120 <= len(d) <= 160): e.append(f"description {len(d)}")
     faq = h.get("faq") or []
