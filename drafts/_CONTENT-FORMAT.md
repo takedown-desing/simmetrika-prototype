@@ -79,6 +79,8 @@ assumptions: ["Q-01", "Q-05"]              # * какие допущения и�
 | `:::practice` | 1–2 абзаца «Из опыта фабрики» | блок опыта без цифр сверх данных |
 | `:::note` | 1–2 предложения | оговорка (не больше 1) |
 
+Поля правил выборки: `all`, `category`, `mechanism`, `material`, `color`, `tag`, `in_stock`, `sample`, `has_sleeping_place`, `has_storage`, `hit`, `showroom` (образцы и выставленные модели точки), `length_gte`. Любой директиве можно задать атрибут `id="…"` для якорной ссылки (`[оставить размеры](#forma)`). Составные правила выборки через запятую (`rule="sample=true,category=uglovye-divany"`), сортировка `sort_default: popularity | price_asc | price_desc | discount`.
+
 Ровно две инфографики на коммерческую страницу (из `steps`, `compare`, `stats`, `scheme`), как в структуре §9.
 
 ## 3. Тексты UI
