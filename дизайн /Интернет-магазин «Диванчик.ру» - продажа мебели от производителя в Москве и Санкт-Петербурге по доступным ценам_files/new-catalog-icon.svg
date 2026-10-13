@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="35.97mm" height="14.82mm" viewBox="0 0 101.96 42" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #2c2c2c;
+        stroke-linecap: round;
+      }
+
+      .cls-1 {
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        stroke-linejoin: round;
+        stroke-width: 0.75px;
+      }
+    </style>
+  </defs>
+  <title>1состояние</title>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Слой_2-2" data-name="Слой 2">
+      <g id="_1состояние" data-name="1состояние">
+        <rect class="cls-1" x="9.13" y="1" width="27.9" height="17.14" rx="0.78" ry="0.78" style="stroke: rgb(150, 150, 150);"/>
+        <rect class="cls-1" x="37.03" y="1" width="27.9" height="17.14" rx="0.78" ry="0.78" style="stroke: rgb(150, 150, 150);"/>
+        <rect class="cls-1" x="64.93" y="1" width="27.9" height="17.14" rx="0.78" ry="0.78" style="stroke: rgb(150, 150, 150);"/>
+        <path class="cls-1" d="M10.4,18.14H35.58A1.45,1.45,0,0,1,37,19.6v5a0,0,0,0,1,0,0H9.13a0,0,0,0,1,0,0V19.42A1.28,1.28,0,0,1,10.4,18.14Z" style="stroke: rgb(150, 150, 150);"/>
+        <path class="cls-1" d="M38.31,18.14H63.48a1.45,1.45,0,0,1,1.45,1.45v5a0,0,0,0,1,0,0H37a0,0,0,0,1,0,0V19.42A1.28,1.28,0,0,1,38.31,18.14Z" style="stroke: rgb(150, 150, 150);"/>
+        <path class="cls-1" d="M66.21,18.14H91.38a1.45,1.45,0,0,1,1.45,1.45v5a0,0,0,0,1,0,0H64.93a0,0,0,0,1,0,0V19.42A1.28,1.28,0,0,1,66.21,18.14Z" style="stroke: rgb(150, 150, 150);"/>
+        <rect class="cls-1" x="9.13" y="24.57" width="83.71" height="7.86" style="stroke: rgb(150, 150, 150);"/>
+        <polygon class="cls-1" points="10.49 41 9.13 41 9.13 32.43 12.53 32.43 10.49 41" style="stroke: rgb(150, 150, 150);"/>
+        <polygon class="cls-1" points="91.47 41 92.83 41 92.83 32.43 89.43 32.43 91.47 41" style="stroke: rgb(150, 150, 150);"/>
+        <path class="cls-1" d="M9.13,32.43H7.49c-1.82,0-2.54-1.19-3.67-2.83a13.86,13.86,0,0,1-2.3-7.27c-.15-3.54-.39-9.35-.5-12,0-.79-.11-1.44.64-1.44H5.13A.89.89,0,0,1,6,9.44l2.69,6.77a6.9,6.9,0,0,1,.49,2.53Z" style="stroke: rgb(150, 150, 150);"/>
+        <g>
+          <polyline class="cls-2" points="21.38 9.27 22.17 9.27 21.57 8.44" style="stroke: rgb(150, 150, 150);"/>
+          <polyline class="cls-2" points="23.76 9.27 22.96 9.27 23.56 8.44" style="stroke: rgb(150, 150, 150);"/>
+          <polyline class="cls-2" points="21.38 10.52 22.17 10.52 21.57 11.36" style="stroke: rgb(150, 150, 150);"/>
+          <polyline class="cls-2" points="23.76 10.52 22.96 10.52 23.56 11.36" style="stroke: rgb(150, 150, 150);"/>
+        </g>
+        <g>
+          <polyline class="cls-2" points="49.96 8.56 50.75 8.56 50.16 7.73" style="stroke: rgb(150, 150, 150);"/>
+          <polyline class="cls-2" points="52.34 8.56 51.55 8.56 52.14 7.73" style="stroke: rgb(150, 150, 150);"/>
+          <polyline class="cls-2" points="49.96 9.81 50.75 9.81 50.16 10.64" style="stroke: rgb(150, 150, 150);"/>
+          <polyline class="cls-2" points="52.34 9.81 51.55 9.81 52.14 10.64" style="stroke: rgb(150, 150, 150);"/>
+        </g>
+        <g>
+          <polyline class="cls-2" points="77.86 8.56 78.66 8.56 78.06 7.73" style="stroke: rgb(150, 150, 150);"/>
+          <polyline class="cls-2" points="80.24 8.56 79.45 8.56 80.05 7.73" style="stroke: rgb(150, 150, 150);"/>
+          <polyline class="cls-2" points="77.86 9.81 78.66 9.81 78.06 10.64" style="stroke: rgb(150, 150, 150);"/>
+          <polyline class="cls-2" points="80.24 9.81 79.45 9.81 80.05 10.64" style="stroke: rgb(150, 150, 150);"/>
+        </g>
+        <path class="cls-1" d="M92.83,32.43h1.64c1.82,0,2.54-1.19,3.67-2.83a13.86,13.86,0,0,0,2.3-7.27c.15-3.54.39-9.35.5-12,0-.79.11-1.44-.64-1.44H96.83a.89.89,0,0,0-.82.58l-2.69,6.77a6.9,6.9,0,0,0-.49,2.53Z" style="stroke: rgb(150, 150, 150);"/>
+      </g>
+    </g>
+  </g>
+</svg>
