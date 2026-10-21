@@ -4,7 +4,7 @@
 
 ## URL conventions (RULE-URL-STRUCTURE)
 - Trailing slash: **yes**. Lowercase, kebab-case, латиница (транслит), без `.html`, без `index`.
-- Товар: `/catalog/{category}/{product}/`. Вариант (ткань/сторона) — без своего URL.
+- Товар: `/catalog/{category}/{product}/`. Вариант (ткань/цвет/сторона) без своего URL: параметры `?material=&color=&side=`, canonical на чистый URL, Clean-param на боевом домене.
 - Статические SEO-фильтры индексируются при ≥ 3 товарах; прочие фильтры/сортировка — GET-параметры с `noindex,follow` + canonical.
 - Любая смена URL — только через 301 single-hop; карта редиректов в `research/structure/CATALOG-MODEL.md §5`.
 

@@ -70,7 +70,7 @@ type (`cart` / `one_click` / `question` / `callback`), name, phone, email, comme
 
 ## 2. URL-правила (RULE-URL-STRUCTURE)
 - Trailing slash: **да**. Lowercase, kebab-case, латиница (транслит по ГОСТ-подобной схеме: Эджио → `edzhio`, Кембридж → `kembridzh`, Реймонд → `reymond`, ТЭО → `teo`, Клоуд → `kloud`, Оксфорд → `oksford`, Милано → `milano`, Бомбей → `bombey`, Флоид → `floyd`, Роллинг → `rolling`, Тейлор → `teylor`, Шанхай → `shanhay`).
-- Товар: `/catalog/{category}/{product}/`. Вариант **не** имеет своего URL: выбор варианта меняет состояние через `?variant={sku}` (canonical → товар без параметра) или через JS-state. Для шаринга менеджером ссылка с `?variant=` допустима.
+- Товар: `/catalog/{category}/{product}/`. Вариант **не** имеет своего URL (иначе дубли). Выбор ткани, цвета и стороны угла пишется в адрес параметрами `?material=velyur&color=seryy&side=left` (history.replaceState): ссылкой с выбранным вариантом можно поделиться, страница откроется с ним. `<link rel="canonical">` всегда на URL без параметров; на боевом домене в robots.txt `Clean-param: material&color&side /catalog/` для Яндекса. Реализовано в превью 2026-10-21.
 - Статические SEO-фильтры (из SITE-TREE): свой URL, свой H1/title/текст, self-canonical, в sitemap. Правило индексации: **≥ 3 активных товаров в выборке → index; иначе `noindex,follow`** (автоматически).
 - Любые другие комбинации фильтров и сортировка — GET-параметры (`?price=…&length=…&sort=…`): `<meta name="robots" content="noindex,follow">` + canonical на страницу без параметров.
 - Пагинация `?page=N`: self-canonical, индексируется, `rel=prev/next` необязательно; «показать ещё» должно иметь fallback-ссылку на `?page=N`.
