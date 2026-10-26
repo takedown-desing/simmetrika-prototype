@@ -71,7 +71,7 @@
 | Прототип структуры (страница для заказчика/разработчика) | `index.html` → https://takedown-desing.github.io/simmetrika-prototype/ |
 | Репозиторий проекта | https://github.com/takedown-desing/simmetrika-prototype |
 | Сайт (превью, Astro) | `site/` → https://github.com/takedown-desing/simmetrika-site · https://takedown-desing.github.io/simmetrika-site/ |
-| Админка сайта (Sveltia CMS) | https://takedown-desing.github.io/simmetrika-site/admin/ · SEO-проверка `/admin/seo/` · инструкция в `site/README.md` |
+| Админка сайта (Sveltia CMS) | https://takedown-desing.github.io/simmetrika-site/admin/ · SEO-проверка `/admin/seo/` · инструкция для менеджера `site/docs/admin-guide/SIMMETRIKA-admin-guide.pdf` (65 стр., скриншоты), техническая в `site/README.md` |
 | Источник правды по текстам и каталогу | с 2026-10-23 `site/src/cms/*.json` (правится в админке); `drafts/content/` и `drafts/data/catalog.json` больше не синхронизируются с сайтом |
 
 ---
@@ -132,7 +132,8 @@
 - [x] Тексты 66 страниц в `drafts/content/` (42 тыс. слов, 451 FAQ) + тексты интерфейса `_ui.md` + данные каталога `drafts/data/catalog.json` — 2026-10-13; проверка `python3 scripts/check-content.py`
 - [ ] Ответы клиента на QUESTIONS.md → замена допущений в данных, структурах и текстах (по полю `assumptions`)
 - [x] `/design-site` (2026-10-13): дизайн по референсу из папки `дизайн/` (главная divanchik.ru), DESIGN.md, Astro-сборка 62 страниц, QA 0 критичных, адаптив 360–1920 без горизонтальной прокрутки. Репозиторий https://github.com/takedown-desing/simmetrika-site, превью https://takedown-desing.github.io/simmetrika-site/
-- [x] Админка Sveltia CMS (2026-10-23): товары, категории, подборки, страницы, новости, настройки, SEO-блок у всех страниц; проверка данных перед сборкой, SEO-отчёт `/admin/seo/`, автопереадресации при смене адреса; сквозной тест `npm run test:admin` (100 проверок). Без выгрузки/загрузки Excel по просьбе пользователя
+- [x] Админка Sveltia CMS (2026-10-23): товары, категории, подборки, страницы, новости, настройки, SEO-блок у всех страниц; проверка данных перед сборкой, SEO-отчёт `/admin/seo/`, автопереадресации при смене адреса; сквозной тест `npm run test:admin` (117 проверок). Без выгрузки/загрузки Excel по просьбе пользователя
+- [x] Повторное тестирование админки перед показом менеджеру и PDF-инструкция (2026-10-26): одна медиатека `public/img/p`, исправлены превью фото, обложки, плашка на телефоне, падежи кнопок; вход с настоящим токеном, сохранение через API и «Опубликовать» на боевом репозитории не проверялись
 - [ ] Обтравка фото на единый фон (требование клиента из описания задачи)
 - [ ] Выбор боевой платформы (бэкенд заявок, админка, email по ТЗ §9–10) и перенос шаблонов
 - [ ] `/launch-site` → 301 со старых URL → `/seo-audit`
